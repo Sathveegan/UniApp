@@ -15,16 +15,26 @@ public class MyLocation {
     private double latitude;
     private double longitude;
     private  int timeMinute;
+    private String contact;
 
     public MyLocation() {
     }
 
-    public MyLocation(Date date, int timeHours, int timeMinute, double latitude, double longitude) {
+    public MyLocation(Date date, int timeHours, int timeMinute, double latitude, double longitude, String contact) {
         this.date = date;
         this.timeHours = timeHours;
         this.timeMinute = timeMinute;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.contact = contact;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
     }
 
     public Date getDate() {

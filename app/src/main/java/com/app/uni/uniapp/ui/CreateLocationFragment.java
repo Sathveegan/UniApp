@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -59,6 +60,7 @@ public class CreateLocationFragment extends Fragment implements OnMapReadyCallba
 
         final DatePicker date = view.findViewById(R.id.create_myloaction_date);
         final TimePicker time = view.findViewById(R.id.create_myloaction_time);
+        final EditText contact = view.findViewById(R.id.create_myloaction_contact);
         Button submit = view.findViewById(R.id.create_myloaction_submit);
 
         submit.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +68,7 @@ public class CreateLocationFragment extends Fragment implements OnMapReadyCallba
             @Override
             public void onClick(View view) {
                 try {
-                        MyLocation myLocation = new MyLocation(new Date(date.getYear()-1900, date.getMonth(), date.getDayOfMonth()), 2, 40, locLat,locLng);
+                        MyLocation myLocation = new MyLocation(new Date(date.getYear()-1900, date.getMonth(), date.getDayOfMonth()), 2, 40, locLat,locLng, contact.getText().toString());
 
                         firebaseClient.createMyLocation(myLocation);
 
