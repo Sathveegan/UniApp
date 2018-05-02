@@ -1,0 +1,62 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.app.uni.uniapp.ui.LocationFragment"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="17">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textAlignment="textStart"
+            android:layout_weight="1"
+            android:text="My Location"/>
+
+        <com.baoyz.swipemenulistview.SwipeMenuListView
+            android:layout_weight="5"
+            android:id="@+id/list_mylocation"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+        </com.baoyz.swipemenulistview.SwipeMenuListView>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textAlignment="textStart"
+            android:text="Friends Location"/>
+
+        <ListView
+            android:layout_weight="10"
+            android:id="@+id/list_friendslocation"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+        </ListView>
+    </LinearLayout>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/add_mylocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@drawable/ic_add_white_24dp"
+        tools:ignore="VectorDrawableCompat" />
+
+</FrameLayout>

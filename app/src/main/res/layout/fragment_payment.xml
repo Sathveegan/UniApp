@@ -1,0 +1,40 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.app.uni.uniapp.ui.PaymentFragment"
+    android:padding="10dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <Button
+            android:id="@+id/reg_semester"
+            android:text="Semester Registration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="@color/primaryText"/>
+        <Button
+            android:id="@+id/reg_repeat"
+            android:text="Repeat Registration"
+            android:layout_width="match_parent"
+            android:textSize="18sp"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="@color/primaryText"
+            android:layout_height="wrap_content" />
+        <Button
+            android:text="Donation"
+            android:id="@+id/donation"
+            android:layout_width="match_parent"
+            android:textSize="18sp"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="@color/primaryText"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</FrameLayout>

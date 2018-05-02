@@ -1,0 +1,179 @@
+{
+  "project_info": {
+    "project_number": "443717325069",
+    "firebase_url": "https://androidapp-4830e-202705.firebaseio.com",
+    "project_id": "androidapp-4830e-202705",
+    "storage_bucket": "androidapp-4830e-202705.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:443717325069:android:edac76f895cf1675",
+        "android_client_info": {
+          "package_name": "com.app.uni.uniapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "443717325069-5043c924eijc9kj2hj60bbnb9e9ckuqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4OAxX5dhgz1aLsXSohpA4NtqT7CBRH1E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:443717325069:android:d21905ebb84ef3b6",
+        "android_client_info": {
+          "package_name": "com.example.dell.Denu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "443717325069-5043c924eijc9kj2hj60bbnb9e9ckuqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4OAxX5dhgz1aLsXSohpA4NtqT7CBRH1E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:443717325069:android:f970ac42a2afe806",
+        "android_client_info": {
+          "package_name": "com.example.dell.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "443717325069-5043c924eijc9kj2hj60bbnb9e9ckuqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4OAxX5dhgz1aLsXSohpA4NtqT7CBRH1E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:443717325069:android:9ea583a47a7309e7",
+        "android_client_info": {
+          "package_name": "com.example.janani.uniapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "443717325069-5043c924eijc9kj2hj60bbnb9e9ckuqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4OAxX5dhgz1aLsXSohpA4NtqT7CBRH1E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:443717325069:android:821561ef10ee453e",
+        "android_client_info": {
+          "package_name": "edmt.dev.location"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "443717325069-5ms0v52am9nmnajv047u7db8bu40e3tu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edmt.dev.location",
+            "certificate_hash": "905c85e49e28fb44d4ac2e0070d2d8917d5d10c6"
+          }
+        },
+        {
+          "client_id": "443717325069-5043c924eijc9kj2hj60bbnb9e9ckuqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4OAxX5dhgz1aLsXSohpA4NtqT7CBRH1E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "443717325069-5043c924eijc9kj2hj60bbnb9e9ckuqi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
