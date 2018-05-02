@@ -2,13 +2,14 @@ package com.app.uni.uniapp.data;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Sathveegan on 02-May-18.
  */
 
-public class MyLocation {
+public class MyLocation implements Serializable {
 
     private Date date;
     private int timeHours;

@@ -22,6 +22,11 @@
             android:layout_weight="1"
             android:text="My Location"/>
 
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="#c0c0c0"/>
+
         <com.baoyz.swipemenulistview.SwipeMenuListView
             android:layout_weight="5"
             android:id="@+id/list_mylocation"
@@ -39,6 +44,10 @@
             android:gravity="center"
             android:textAlignment="textStart"
             android:text="Friends Location"/>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="#c0c0c0"/>
 
         <ListView
             android:layout_weight="10"

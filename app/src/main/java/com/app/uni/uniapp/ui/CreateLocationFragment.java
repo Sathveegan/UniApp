@@ -68,11 +68,13 @@ public class CreateLocationFragment extends Fragment implements OnMapReadyCallba
             @Override
             public void onClick(View view) {
                 try {
-                        MyLocation myLocation = new MyLocation(new Date(date.getYear()-1900, date.getMonth(), date.getDayOfMonth()), 2, 40, locLat,locLng, contact.getText().toString());
+                        MyLocation myLocation = new MyLocation(new Date(date.getYear()-1900, date.getMonth(), date.getDayOfMonth()), time.getCurrentHour(), time.getCurrentMinute(), locLat,locLng, contact.getText().toString());
 
                         firebaseClient.createMyLocation(myLocation);
 
                         Toast.makeText(getActivity(),"My Location Added!", Toast.LENGTH_SHORT).show();
+
+                        contact.setText("");
 
                     }catch(Exception e){
                     Toast.makeText(getActivity(),"Try Again!",Toast.LENGTH_SHORT).show();
