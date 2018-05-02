@@ -28,6 +28,7 @@
             android:text="Name"/>
         
         <EditText
+            android:id="@+id/semester_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -41,7 +42,7 @@
         <DatePicker
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/post_date"
+            android:id="@+id/semester_date"
             android:calendarViewShown="false"
             android:datePickerMode="spinner">
 
@@ -53,6 +54,7 @@
 
             android:text="Contact No"/>
         <EditText
+            android:id="@+id/semester_contact"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <TextView
@@ -61,6 +63,7 @@
 
             android:text="Email"/>
         <EditText
+            android:id="@+id/semester_mail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <TextView
@@ -69,6 +72,7 @@
 
             android:text="Year"/>
         <EditText
+            android:id="@+id/semester_year"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <TextView
@@ -77,6 +81,7 @@
 
             android:text="Semester"/>
         <EditText
+            android:id="@+id/semester_semi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <TextView
@@ -85,6 +90,7 @@
 
             android:text="Amount"/>
         <EditText
+            android:id="@+id/semester_amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         
