@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:id="@+id/activity_main"
+android:paddingBottom="16dp"
+android:paddingRight="16dp"
+android:paddingLeft="16dp"
+android:paddingTop="16dp"
+tools:context="com.app.uni.uniapp.ui.MessageFragment">
+
+<android.support.design.widget.FloatingActionButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:src="@drawable/ic_menu_send"
+    android:id="@+id/fab"
+    android:tint="@android:color/white"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentEnd="true"
+    app:fabSize="mini"/>
+
+
+
+<android.support.design.widget.TextInputLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_toLeftOf="@+id/fab"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentEnd="true">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Message..."
+        android:id="@+id/input"/>
+
+</android.support.design.widget.TextInputLayout>
+
+
+<ListView
+    android:id="@+id/listOfMessage"
+    android:dividerHeight="16dp"
+    android:divider="@android:color/transparent"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentStart="true">
+
+</ListView>
+</RelativeLayout>
+

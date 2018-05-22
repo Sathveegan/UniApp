@@ -14,4 +14,42 @@
         <item>Master</item>
         <item>American Express</item>
     </string-array>
+    <string name="title_activity_login">LoginActivity</string>
+
+
+    <string name="login_activity">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="register_activity">Register</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="auth_failed">Authentication Failed</string>
+    <string name="signout">Signout</string>
+    <string name="ForgotPasswordActivity">Forgot Password</string>
+    <string name="ResetPassword">ResetPassword</string>
+    <string name="Back">Back</string>
+    <string name="Admin_Activity">Admin</string>
+    <string name="OldPassword">OldPassword</string>
+    <string name="NewPassword">NewPassword</string>
+    <string name="OldEmail">OldEmail</string>
+    <string name="NewEmail">NewEmail</string>
+    <string name="changeEmail">ChangeEmail</string>
+    <string name="ChangePassword">ChangePassword</string>
+    <string name="SendResetEmail">SendResetEmail</string>
+    <string name="RemoveUser">RemoveUser</string>
+    <string name="ReChangeEmail">ReChangeEmail</string>
+    <string name="ReChangePassword">ReChangePassword</string>
+    <string name="SendEmail">SendEmail</string>
+    <string name="Remove">Remove</string>
+    <string name="facebook_app_id">2085075435105557</string>
+    <string name="fb_login_protocol_scheme">fb2085075435105557</string>
+    <string name="Admin">Admin</string>
+
+
+    <string name="button">Back</string>
+    <string name="title_activity_admin2">AdminActivity2</string>
+    <string name="title_activity_forgot_password">ForgotPasswordActivity</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_activity_rating">RatingActivity</string>
+
 </resources>

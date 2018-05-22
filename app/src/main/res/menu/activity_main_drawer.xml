@@ -17,6 +17,14 @@
             android:icon="@drawable/ic_payment_black_24dp"
             android:title="Payment" />
         <item
+            android:id="@+id/nav_message"
+            android:icon="@drawable/ic_message_black_24dp"
+            android:title="Message" />
+        <item
+            android:id="@+id/nav_rating"
+            android:icon="@drawable/ic_star_black_24dp"
+            android:title="Rating" />
+        <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_power_settings_new_black_24dp"
             android:title="logout" />

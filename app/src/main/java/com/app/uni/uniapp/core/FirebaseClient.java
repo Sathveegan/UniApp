@@ -5,8 +5,11 @@ import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.app.uni.uniapp.data.JoinList;
 import com.app.uni.uniapp.data.MyLocation;
 import com.app.uni.uniapp.data.MyLocationAdapter;
+import com.app.uni.uniapp.data.Post;
+import com.app.uni.uniapp.data.PostAdapter;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
@@ -26,6 +29,13 @@ public class FirebaseClient {
     private ListView listView;
     private ArrayList<MyLocation> myLocations = new ArrayList<>();
     final ArrayList<String> myLocationsKeyList = new ArrayList<>();
+
+    private ArrayList<Post> postsList = new ArrayList<>();
+    final ArrayList<String> keyList = new ArrayList<>();
+    final ArrayList<Post> searchList = new ArrayList<>();
+    private PostAdapter postAdapter;
+
+
     private MyLocationAdapter myLocationAdapter;
 
     public FirebaseClient(String DB_URL){
@@ -82,6 +92,54 @@ public class FirebaseClient {
         myLocationAdapter.notifyDataSetChanged();
         firebase.child("myLocation").child(myLocationsKeyList.get(position)).removeValue();
         myLocationsKeyList.remove(position);
+    }
+
+    public void loadPostData(){
+        firebase.child("posts").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                getPostUpdates(dataSnapshot);
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+                Log.v("Firebase", firebaseError.toString());
+            }
+        });
+    }
+
+    public void getPostUpdates(DataSnapshot dataSnapshot){
+        postsList.clear();
+        keyList.clear();
+
+        for(DataSnapshot ds : dataSnapshot.getChildren()){
+            Post post = ds.getValue(Post.class);
+            keyList.add(ds.getKey());
+            postsList.add(post);
+        }
+
+        if(postsList.size() > 0){
+            postAdapter = new PostAdapter(context, postsList, DB_URL);
+            listView.setAdapter(postAdapter);
+        }else{
+            Toast.makeText(context, "No posts...", Toast.LENGTH_SHORT);
+        }
+    }
+
+    public void searchPosts(String query){
+        searchList.clear();
+        for (Post p: postsList) {
+            if(p.getTitle().toLowerCase().contains(query.trim().toLowerCase())){
+                searchList.add(p);
+            }
+        }
+        postAdapter = new PostAdapter(context, searchList, DB_URL);
+        listView.setAdapter(postAdapter);
+
+    }
+
+    public void joinPost(JoinList joinList){
+        firebase.child("joinLists").push().setValue(joinList);
     }
 
 

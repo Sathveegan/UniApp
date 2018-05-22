@@ -1,7 +1,9 @@
 package com.app.uni.uniapp.ui;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
@@ -15,9 +17,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.app.uni.uniapp.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private FirebaseAuth auth;
+    private FirebaseAuth.AuthStateListener authListener;
+    private FirebaseUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +39,20 @@ public class MainActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        auth = FirebaseAuth.getInstance();
+
+        authListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                currentUser = user;
+                if (user == null) {
+                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                    finish();
+                }
+            }
+        };
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -96,8 +118,16 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.fragment_main, new PaymentFragment());
             fragmentTransaction.commit();
 
-        } else if (id == R.id.nav_logout) {
-            BackPressed();
+        } else if (id == R.id.nav_message) {
+            fragmentTransaction.replace(R.id.fragment_main, new MessageFragment());
+            fragmentTransaction.commit();
+
+        }else if (id == R.id.nav_rating) {
+            fragmentTransaction.replace(R.id.fragment_main, new RatingFragment());
+            fragmentTransaction.commit();
+
+        }else if (id == R.id.nav_logout) {
+            auth.signOut();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -105,30 +135,18 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public void BackPressed() {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setTitle("Exit Application?");
-        alertDialogBuilder
-                .setMessage("Click yes to exit!")
-                .setCancelable(false)
-                .setPositiveButton("Yes",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                moveTaskToBack(true);
-                                android.os.Process.killProcess(android.os.Process.myPid());
-                                System.exit(1);
-                            }
-                        })
+    @Override
+    public void onStart() {
+        super.onStart();
+        auth.addAuthStateListener(authListener);
+    }
 
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-
-                        dialog.cancel();
-                    }
-                });
-
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (authListener != null) {
+            auth.removeAuthStateListener(authListener);
+        }
     }
 
 }

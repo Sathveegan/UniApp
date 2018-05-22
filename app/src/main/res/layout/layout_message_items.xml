@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:text="User"
+        android:id="@+id/messageUser"
+        android:textStyle="normal|bold"/>
+
+    <TextView
+        android:layout_alignParentBottom="@+id/messageUser"
+        android:layout_width="wrap_content"
+        android:text="Time"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/messageTime"
+        android:textStyle="normal|bold"/>x
+
+    <TextView
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/messageUser"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18sp"
+        android:text="Message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/messageText"/>
+
+</RelativeLayout>
