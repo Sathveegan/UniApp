@@ -1,10 +1,13 @@
 package com.app.uni.uniapp.ui;
 
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -88,10 +91,19 @@ public class FriendsLocFragment extends Fragment implements OnMapReadyCallback{
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.getUiSettings().setZoomControlsEnabled(true);
         LatLng defaultLac = new LatLng(myLocation.getLatitude(), myLocation.getLongitude());
         marker = mMap.addMarker(new MarkerOptions()
                 .position(defaultLac)
-                .title("Friends Location"));
+                .title("Destination")
+                .draggable(true));
+
+        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            mMap.setMyLocationEnabled(true);
+        } else {
+
+        }
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(defaultLac));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(13), 2000, null);

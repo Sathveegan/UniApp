@@ -11,6 +11,7 @@ import java.util.Date;
 
 public class MyLocation implements Serializable {
 
+    private String username;
     private Date date;
     private int timeHours;
     private double latitude;
@@ -21,13 +22,22 @@ public class MyLocation implements Serializable {
     public MyLocation() {
     }
 
-    public MyLocation(Date date, int timeHours, int timeMinute, double latitude, double longitude, String contact) {
+    public MyLocation(String username, Date date, int timeHours, int timeMinute, double latitude, double longitude, String contact) {
         this.date = date;
         this.timeHours = timeHours;
         this.timeMinute = timeMinute;
         this.latitude = latitude;
         this.longitude = longitude;
         this.contact = contact;
+        this.username = username;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getContact() {

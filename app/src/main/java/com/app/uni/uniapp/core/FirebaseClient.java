@@ -5,11 +5,14 @@ import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.app.uni.uniapp.data.Donation;
 import com.app.uni.uniapp.data.JoinList;
 import com.app.uni.uniapp.data.MyLocation;
 import com.app.uni.uniapp.data.MyLocationAdapter;
 import com.app.uni.uniapp.data.Post;
 import com.app.uni.uniapp.data.PostAdapter;
+import com.app.uni.uniapp.data.RepeatRegister;
+import com.app.uni.uniapp.data.SemiRegister;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
@@ -51,11 +54,13 @@ public class FirebaseClient {
         firebase = new Firebase(DB_URL);
     }
 
-    public void loadMyLocationData(){
+    public void loadMyLocationData(String type, String username){
+        final String user = username;
+        final String itype = type;
         firebase.child("myLocation").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                getMyLocationUpdates(dataSnapshot);
+                getMyLocationUpdates(dataSnapshot, itype, user);
             }
 
             @Override
@@ -65,14 +70,26 @@ public class FirebaseClient {
         });
     }
 
-    public void getMyLocationUpdates(DataSnapshot dataSnapshot){
+    public void getMyLocationUpdates(DataSnapshot dataSnapshot, String type, String username){
         myLocations.clear();
         myLocationsKeyList.clear();
 
-        for(DataSnapshot ds : dataSnapshot.getChildren()){
-            MyLocation myLocation = ds.getValue(MyLocation.class);
-            myLocations.add(myLocation);
-            myLocationsKeyList.add(ds.getKey());
+        if(type.equals("MyLocation")){
+            for(DataSnapshot ds : dataSnapshot.getChildren()){
+                MyLocation myLocation = ds.getValue(MyLocation.class);
+                if(username.equalsIgnoreCase(myLocation.getUsername())) {
+                    myLocations.add(myLocation);
+                    myLocationsKeyList.add(ds.getKey());
+                }
+            }
+        } else if(type.equals("FriendsLocation")){
+            for(DataSnapshot ds : dataSnapshot.getChildren()){
+                MyLocation myLocation = ds.getValue(MyLocation.class);
+                if(!username.equalsIgnoreCase(myLocation.getUsername())) {
+                    myLocations.add(myLocation);
+                    myLocationsKeyList.add(ds.getKey());
+                }
+            }
         }
 
         if(myLocations.size() > 0){
@@ -140,6 +157,18 @@ public class FirebaseClient {
 
     public void joinPost(JoinList joinList){
         firebase.child("joinLists").push().setValue(joinList);
+    }
+
+    public void semesterRegister(SemiRegister semiRegister){
+        firebase.child("registration").child("semester").push().setValue(semiRegister);
+    }
+
+    public void repeatRegister(RepeatRegister repeatRegister){
+        firebase.child("registration").child("repeat").push().setValue(repeatRegister);
+    }
+
+    public void donation(Donation donation){
+        firebase.child("donation").push().setValue(donation);
     }
 
 

@@ -1,6 +1,7 @@
 package com.app.uni.uniapp.ui;
 
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -27,6 +28,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 /**
@@ -50,14 +53,16 @@ public class LocationFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_location, container, false);
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
         myLocationlistView = view.findViewById(R.id.list_mylocation);
         friendsLocationView = view.findViewById(R.id.list_friendslocation);
 
         firebaseClient = new FirebaseClient(getActivity(), DB_URL, myLocationlistView);
-        firebaseClient.loadMyLocationData();
+        firebaseClient.loadMyLocationData("MyLocation", user.getEmail());
 
         firebaseClient = new FirebaseClient(getActivity(), DB_URL, friendsLocationView);
-        firebaseClient.loadMyLocationData();
+        firebaseClient.loadMyLocationData("FriendsLocation", user.getEmail());
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

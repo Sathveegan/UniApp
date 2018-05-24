@@ -11,20 +11,44 @@
         android:orientation="vertical">
 
         <TextView
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Name"/>
 
         <EditText
+            android:textSize="20sp"
+            android:id="@+id/donation_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date"/>
+
+        <DatePicker
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/donation_date"
+            android:calendarViewShown="false"
+            android:datePickerMode="spinner">
+
+        </DatePicker>
+
+        <TextView
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Amount"/>
 
         <EditText
+            android:textSize="20sp"
+            android:id="@+id/donation_amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

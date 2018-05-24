@@ -11,24 +11,34 @@
         android:orientation="vertical">
 
         <TextView
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ID Number"/>
 
         <EditText
+            android:textSize="20sp"
+            android:id="@+id/repeat_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Name"/>
 
         <EditText
+            android:textSize="20sp"
+            android:id="@+id/repeat_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Date"/>
@@ -36,32 +46,41 @@
         <DatePicker
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/post_date"
+            android:id="@+id/repeat_date"
             android:calendarViewShown="false"
             android:datePickerMode="spinner">
 
         </DatePicker>
 
         <TextView
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Subject"/>
 
         <EditText
+            android:textSize="20sp"
+            android:id="@+id/repeat_subject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Amount"/>
 
         <EditText
+            android:textSize="20sp"
+            android:id="@+id/repeat_amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/repeat_submit"
+            android:textSize="20sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Pay"

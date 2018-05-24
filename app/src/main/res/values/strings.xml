@@ -52,4 +52,7 @@
     <string name="title_activity_register">RegisterActivity</string>
     <string name="title_activity_rating">RatingActivity</string>
 
+    <string name="payment_endpoint">http://192.168.8.101:8080/card/cardAuthenticate</string>
+    <string name="title_activity_location">LocationActivity</string>
+
 </resources>

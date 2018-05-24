@@ -11,48 +11,82 @@
         android:orientation="vertical">
 
         <TextView
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Card Type"/>
 
         <Spinner
+            android:textSize="20sp"
+            android:id="@+id/card_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:entries="@array/card_type"/>
 
         <TextView
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Card Number"/>
 
         <EditText
+            android:textSize="20sp"
+            android:id="@+id/card_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Expiry Date"/>
 
-        <DatePicker
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/post_date"
-            android:calendarViewShown="false"
-            android:datePickerMode="spinner">
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <EditText
+                android:textSize="20sp"
+                android:layout_weight="1"
+                android:id="@+id/card_expiry_year"
+                android:layout_width="match_parent"
+                android:hint="YY"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/"/>
+            <EditText
+                android:layout_weight="1"
+                android:hint="MM"
+                android:textSize="20sp"
+                android:id="@+id/card_expiry_month"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
-        </DatePicker>
 
         <TextView
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="CCV"/>
 
         <EditText
+            android:textSize="20sp"
+            android:id="@+id/card_ccv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <Button
+            android:textSize="20sp"
+            android:id="@+id/card_submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/colorPrimary"
