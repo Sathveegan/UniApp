@@ -87,7 +87,7 @@ public class CardFragment extends Fragment implements Callback{
                 }
 
                 if (TextUtils.isEmpty(expiry_month.getText())) {
-                    card_cvv.setError("Expiry month required!");
+                    expiry_month.setError("Expiry month required!");
                     return;
                 }
 
