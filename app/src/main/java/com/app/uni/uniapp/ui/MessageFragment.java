@@ -1,6 +1,7 @@
 package com.app.uni.uniapp.ui;
 
 
+import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -58,7 +59,7 @@ public class MessageFragment extends Fragment {
     }
 
     private void displayChatMessage() {
-        ListView listOfMessage = (ListView) view.findViewById(R.id.listOfMessage);
+        final ListView listOfMessage = (ListView) view.findViewById(R.id.listOfMessage);
 
         Query query = FirebaseDatabase.getInstance().getReference().child("messages");
         FirebaseListOptions<ChatMessage> options = new FirebaseListOptions.Builder<ChatMessage>()
@@ -81,6 +82,14 @@ public class MessageFragment extends Fragment {
 
             }
         };
+
+        adapter.registerDataSetObserver(new DataSetObserver() {
+            @Override
+            public void onChanged() {
+                super.onChanged();
+                listOfMessage.setSelection(adapter.getCount()-1);
+            }
+        });
 
         listOfMessage.setAdapter(adapter);
     }

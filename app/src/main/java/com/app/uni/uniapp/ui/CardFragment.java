@@ -107,7 +107,6 @@ public class CardFragment extends Fragment implements Callback{
     @Override
     public void onCallbackCompleted(String data) {
         Log.v("Callback","Collback Completed");
-        Log.v("Callback",data);
 
         try {
             JSONObject jsonObj = new JSONObject(data);
@@ -142,11 +141,6 @@ public class CardFragment extends Fragment implements Callback{
                     Toast.makeText(getActivity(), "Donation Successfully", Toast.LENGTH_SHORT).show();
                 }
 
-                card_number.setText("");
-                card_cvv.setText("");
-                expiry_month.setText("");
-                expiry_year.setText("");
-
                 for(int i=0; i<getActivity().getSupportFragmentManager().getBackStackEntryCount(); i++){
                     getActivity().getSupportFragmentManager().popBackStack();
                 }
@@ -176,21 +170,20 @@ public class CardFragment extends Fragment implements Callback{
             }
 
         } catch (JSONException e) {
-            Toast.makeText(getActivity(), "Registration Failed!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Payment Server Down.\nTry Again.", Toast.LENGTH_SHORT).show();
         } catch(Exception e){
-            Toast.makeText(getActivity(), "Registration Failed!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Payment Server Down.\nTry Again.", Toast.LENGTH_SHORT).show();
         }
     }
 
     public void check(){
 
-
-        SimpleDateFormat format = new SimpleDateFormat("yy/MM");
         String icard_number = card_number.getText().toString().trim();
         String iexpiry_date = expiry_year.getText().toString().trim() +"/"+expiry_month.getText().toString().trim();
         String icard_cvv = card_cvv.getText().toString().trim();
 
         Executor executor = new Executor(getResources().getString(R.string.payment_endpoint),icard_number, icard_cvv, iexpiry_date, this);
         executor.execute();
+
     }
 }

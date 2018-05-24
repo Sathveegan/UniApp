@@ -47,6 +47,5 @@ dependencies {
 
     compile 'com.firebaseui:firebase-ui:3.2.2'
 
-
 }
 apply plugin: 'com.google.gms.google-services'
